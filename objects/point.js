@@ -11,6 +11,8 @@ class Point{
         this.cs = cs;
         this.perceptionRadius = 150;
         this.r = 2;
+
+        this.neighbors = [];
     }
 
     update(){
@@ -30,12 +32,13 @@ class Point{
         // this.c.closePath();
         // this.c.fillStyle = '#D2D2D2';
         // this.c.fill();
+        this.neighbors = [];
 
         for (let i = 0; i < points.length; i++) {
             if(this === points[i]) continue;
             let distance = this.pos.distance(points[i].pos);
             
-            if(distance < this.perceptionRadius){
+            if(distance < this.perceptionRadius && !points[i].neighbors.includes(this)){
                 this.c.save();
                 this.c.beginPath();
                 this.c.globalAlpha = (this.perceptionRadius - distance) / this.perceptionRadius;
@@ -44,12 +47,14 @@ class Point{
                 this.c.closePath();
                 if(this.color > this.colorLimit){
                     this.c.strokeStyle = '#A6A6A6';
+                    this.c.lineWidth = 0.2;
                 }else{
                     this.c.strokeStyle = '#16DF73';
+                    this.c.lineWidth = 0.4;
                 }
-                this.c.lineWidth = 0.2;
                 this.c.stroke();
                 this.c.restore();
+                this.neighbors.push(points[i]);
             }
         }
     }
