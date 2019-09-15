@@ -4,6 +4,10 @@ class Point{
         this.pos = pos;
         this.vel = vel;
 
+        this.color = Math.random();
+
+        this.colorLimit = 0.2;
+
         this.cs = cs;
         this.perceptionRadius = 150;
         this.r = 2;
@@ -38,7 +42,11 @@ class Point{
                 this.c.moveTo(this.pos.x, this.pos.y);
                 this.c.lineTo(points[i].pos.x, points[i].pos.y);
                 this.c.closePath();
-                this.c.strokeStyle = '#A6A6A6';
+                if(this.color > this.colorLimit){
+                    this.c.strokeStyle = '#A6A6A6';
+                }else{
+                    this.c.strokeStyle = '#16DF73';
+                }
                 this.c.lineWidth = 0.2;
                 this.c.stroke();
                 this.c.restore();
