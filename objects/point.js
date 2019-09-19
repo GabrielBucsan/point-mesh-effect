@@ -9,7 +9,7 @@ class Point{
         this.colorLimit = 0.2;
 
         this.cs = cs;
-        this.perceptionRadius = 150;
+        this.perceptionRadius = 300;
         this.r = 2;
 
         this.neighbors = [];

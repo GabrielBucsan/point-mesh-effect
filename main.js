@@ -4,7 +4,7 @@ $(document).ready(()=>{
     const c = canvas.context;
 
     let points = [];
-    let numPoints = 150;
+    let numPoints = 50;
 
     for (let i = 0; i < numPoints; i++) {
         let pos = new Vector(Math.random() * canvas.size.x, Math.random() * canvas.size.y);
