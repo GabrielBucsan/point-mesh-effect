@@ -1,10 +1,10 @@
 $(document).ready(()=>{
 
-    const canvas = new Canvas();
+    const canvas = new Canvas(510,510);
     const c = canvas.context;
 
     let points = [];
-    let numPoints = 50;
+    let numPoints = 15;
 
     for (let i = 0; i < numPoints; i++) {
         let pos = new Vector(Math.random() * canvas.size.x, Math.random() * canvas.size.y);
